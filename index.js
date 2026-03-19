@@ -4,7 +4,8 @@ const client = new Client({
   intents: [
     GatewayIntentBits.Guilds,
     GatewayIntentBits.GuildMessages,
-    // Not strictly needed just to count attachments, but fine to keep:
+    // Not strictly needed 
+    
     GatewayIntentBits.MessageContent,
   ],
 });
@@ -14,6 +15,7 @@ client.on("messageCreate", async (message) => {
   if (message.author.bot) return;
 
   // Delete if 4+ attachments in ONE message
+  
   if (message.attachments.size >= 4) {
     try {
       await message.delete();
